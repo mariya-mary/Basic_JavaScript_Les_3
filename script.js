@@ -28,24 +28,24 @@ const goods = [
     ['avocado', 0.3, 350]
 ]
 // через цикл
-function countBasketPrice(goods) {
+function countBasketPriceCicle(goods) {
     let costItem = 0;
     for (i = 0; i < goods.length; i++) {
         costItem = costItem + goods[i][1] * goods[i][2];
     }
     return costItem;
 }
+console.log(countBasketPriceCicle(goods));
 
-// console.log(countBasketPrice(goods));
-// function countBasketPrice(goods) {
-//     let costItem = [];
-//     for (i = 0; i < goods.length; i++) {
-//         costItem[i] = goods[i][1] * goods[i][2];
-//     }
-//     return costItem.reduce(function (a, b) {
-//         return a + b;
-//     });
-// }
+
+// через reduce
+function countBasketPrice(goods) {
+    const initialValue = 0;
+    const countBasketPrice = goods.reduce(function (acc, item) {
+        return acc + item[1] * item[2];
+    }, initialValue);
+    return countBasketPrice;
+}
 
 console.log(countBasketPrice(goods));
 
